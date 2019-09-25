@@ -18,16 +18,40 @@ public class Page_CalculateMediaFinal {
     @AndroidFindBy(xpath = "//android.widget.EditText[@resource-id='com.exemplo.calculamediafinal:id/txtNota1']")
     private WebElement nota1;
 
+    public WebElement getNota1(){
+
+        return nota1;
+    }
+
     @AndroidFindBy(xpath = "//android.widget.EditText[@resource-id='com.exemplo.calculamediafinal:id/txtNota2']")
     private WebElement nota2;
+    public WebElement getNota2(){
+
+        return nota1;
+    }
+
 
     @AndroidFindBy(xpath = "//android.widget.EditText[@resource-id='com.exemplo.calculamediafinal:id/txtNota3']")
     private  WebElement nota3;
 
+    public WebElement getNota3(){
+
+        return nota1;
+    }
+
     @AndroidFindBy(xpath = "//android.widget.Button[@resource-id='com.exemplo.calculamediafinal:id/btnCalcular']")
     private WebElement calculatorBtn;
 
+    public WebElement getCalculatorBtn() {
+        return calculatorBtn;
+    }
+
     @AndroidFindBy(xpath = "//android.widget.TextView[@resource-id='com.exemplo.calculamediafinal:id/txtMediaFinal']")
     private WebElement resultTxt;
+
+    public WebElement getResultTxt(){
+
+        return resultTxt;
+    }
 
 }

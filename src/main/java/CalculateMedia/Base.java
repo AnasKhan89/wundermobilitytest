@@ -5,6 +5,7 @@ import io.appium.java_client.android.AndroidElement;
 import io.appium.java_client.remote.MobileCapabilityType;
 import io.appium.java_client.service.local.AppiumDriverLocalService;
 import org.openqa.selenium.remote.DesiredCapabilities;
+import org.testng.annotations.BeforeTest;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -50,7 +51,7 @@ public class Base {
     public static  AndroidDriver<AndroidElement> capabilities(String appName) throws IOException, InterruptedException
     {
 
-        FileInputStream fis=new FileInputStream(System.getProperty("user.dir")+"\\src\\main\\java\\practise\\AppiumFramework\\global.properties");
+        FileInputStream fis=new FileInputStream(System.getProperty("user.dir")+"\\src\\main\\resources\\global.properties");
         Properties prop=new Properties();
         prop.load(fis);
 
@@ -63,10 +64,10 @@ public class Base {
         String device=(String) prop.get("deviceName");
         //  String device= System.getProperty("deviceName");
 
-     if(device.contains("emulator"))
+    /* if(device.contains("emulator"))
      {
          startEmulator();
-     }
+     }*/
         capabilities.setCapability(MobileCapabilityType.DEVICE_NAME, device);
 
         capabilities.setCapability(MobileCapabilityType.AUTOMATION_NAME,"uiautomator2");
@@ -74,7 +75,7 @@ public class Base {
 
         capabilities.setCapability(MobileCapabilityType.APP, app.getAbsolutePath());
         driver = new AndroidDriver<AndroidElement>(new URL("http://127.0.0.1:4723/wd/hub"), capabilities);
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+//        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 
         return driver;
     }
@@ -84,6 +85,15 @@ public class Base {
 
         Runtime.getRuntime().exec(System.getProperty("user.dir")+"\\src\\main\\java\\resources\\startEmulator.bat - Shortcut");
         Thread.sleep(6000);
+
+    }
+
+    @BeforeTest
+    public void killAllNodes() throws IOException, InterruptedException
+    {
+        //taskkill /F /IM node.exe
+        Runtime.getRuntime().exec("taskkill /F /IM node.exe");
+        Thread.sleep(3000);
 
     }
 }

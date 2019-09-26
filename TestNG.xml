@@ -1,0 +1,8 @@
+<suite name ="Calcula">
+    <test name = "calculaMediaTest">
+        <classes>
+            <class name ="CalculateMediaTestCases.TestCases">
+            </class>
+        </classes>
+    </test>
+</suite>

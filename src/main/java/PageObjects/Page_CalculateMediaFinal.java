@@ -27,7 +27,7 @@ public class Page_CalculateMediaFinal {
     private WebElement nota2;
     public WebElement getNota2(){
 
-        return nota1;
+        return nota2;
     }
 
 
@@ -36,7 +36,7 @@ public class Page_CalculateMediaFinal {
 
     public WebElement getNota3(){
 
-        return nota1;
+        return nota3;
     }
 
     @AndroidFindBy(xpath = "//android.widget.Button[@resource-id='com.exemplo.calculamediafinal:id/btnCalcular']")

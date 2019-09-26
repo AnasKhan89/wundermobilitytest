@@ -6,15 +6,18 @@ Thank you for downloading this project.  This download contains code to automate
 
 How to run:
 --------------
-
-
-1. modify global.properties and set your emulator name (emulator name must contain emulator keyword) or Android device for real device.
-2. TO run on real android device just comment devicename=anasemulator.
-3. 
+1. Run it on android real device,
  i-you can run with mvn verify - you can see reports target/surefire-reports/index.html .
  ii- you can run testNg.xml by right click and run as testNg.xml.
  iii- you can also run TestCases.java file to run this. 
-
+2-To run on emulator you just need to open emulator and update 
+your emulator name in device name in global.properties. 
+Technology Stack:
+----------------
+1-Java
+2-Appium
+3-TestNG
+4-Maven
 
 CONTENTS
 --------

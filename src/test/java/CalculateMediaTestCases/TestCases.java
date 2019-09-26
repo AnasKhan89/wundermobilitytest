@@ -16,9 +16,7 @@ public class TestCases extends Base {
     @Test(priority = 1, dataProvider = "testData",dataProviderClass =TestData.class,
           description = "verify that application is calculating average of all 3 fields")
     public void testCase1(TestData testData) throws IOException, InterruptedException {
-        service=startServer();
-        AndroidDriver<AndroidElement> driver=capabilities("appName");
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+
         Page_CalculateMediaFinal pgCalculate = new Page_CalculateMediaFinal(driver);
         pgCalculate.getNota1().sendKeys(testData.getField1());
         pgCalculate.getNota2().sendKeys(testData.getField2());
@@ -26,16 +24,12 @@ public class TestCases extends Base {
         pgCalculate.getCalculatorBtn().click();
         Double expResult=20.0;
         Assert.assertEquals((Double.valueOf(pgCalculate.getResultTxt().getText())),expResult);
-        service.stop();
-
     }
 
     @Test(priority = 2, dataProvider = "testData",dataProviderClass =TestData.class,
             description = "verify that application is perform correctly when user only fill 2 fields and calculate them")
     public void testCase2(TestData testData) throws IOException, InterruptedException {
-        service=startServer();
-        AndroidDriver<AndroidElement> driver=capabilities("appName");
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+
         Page_CalculateMediaFinal pgCalculate = new Page_CalculateMediaFinal(driver);
         pgCalculate.getNota1().sendKeys(testData.getField1());
         pgCalculate.getNota2().sendKeys(testData.getField2());
@@ -50,8 +44,6 @@ public class TestCases extends Base {
             System.out.println("Application is not perform correctly"); //I assume that application should show average of 2 fields
             Assert.fail(e.getMessage());
         }
-
-
 
     }
 }

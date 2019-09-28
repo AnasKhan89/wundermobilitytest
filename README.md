@@ -12,6 +12,8 @@ How to run:
  iii- you can also run TestCases.java file to run this. 
 2-To run on emulator you just need to open emulator and update 
 your emulator name in device name in global.properties. 
+
+
 Technology Stack:
 ----------------
 1-Java
